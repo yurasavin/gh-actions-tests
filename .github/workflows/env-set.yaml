@@ -20,6 +20,7 @@ jobs:
         run: echo "IMAGE_TAG is ${{ env.IMAGE_TAG }}"
 
       - name: Set image tag env
+        shell: bash
         run: echo "IMAGE_TAG=us-central1-docker.pkg.dev/${{ env.GKE_PROJECT }}/${{ env.REPO }}/${{ env.BACKEND_IMAGE }}:${{ github.sha}}" >> $IMAGE_TAG
 
       - name: Checkout env after
