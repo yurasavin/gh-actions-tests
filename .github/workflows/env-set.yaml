@@ -10,16 +10,16 @@ env:
   REPO: tehl
   BACKEND_IMAGE: backend
   BACKEND_DEPLOYMENT_NAME: backend
-  IMAGE_TAG:
+  IMAGE_TAG: "us-central1-docker.pkg.dev/$GKE_PROJECT/$REPO/$BACKEND_IMAGE:${{ github.sha}}"
 
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    env:
-      IMAGE_TAG: us-central1-docker.pkg.dev/${{ vars.GKE_PROJECT }}/${{ vars.REPO }}/${{ vars.BACKEND_IMAGE }}:${{ github.sha }}
     steps:
-      - name: Checkout env before
+      - name: Checkout env
         run: echo "IMAGE_TAG is ${{ env.IMAGE_TAG }}"
+        # env:
+        #   IMAGE_TAG: us-central1-docker.pkg.dev/${{ env.GKE_PROJECT }}/${{ env.REPO }}/${{ env.BACKEND_IMAGE }}:${{ github.sha }}
 
       # - name: Set image tag env
       #   shell: bash
