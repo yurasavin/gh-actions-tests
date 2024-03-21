@@ -7,5 +7,5 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Print date
+      - name: Print date $(date -u +'%Y-%m-%d %H:%M:%S %Z')
         run: echo "The date is $(date -u +'%Y-%m-%d %H:%M:%S %Z')"
